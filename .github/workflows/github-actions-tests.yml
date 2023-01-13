@@ -5,6 +5,7 @@ jobs:
   API-Tests:
     runs-on: ubuntu-latest
     steps:
+      - uses: ./
       - name: Install Deps
         run: npm install
       - name: Run Tests
