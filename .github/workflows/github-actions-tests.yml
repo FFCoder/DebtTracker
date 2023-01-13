@@ -1,0 +1,12 @@
+name: Run API Tests
+run-name: ${{ github.actor }} is running API tests.
+on: [push]
+jobs:
+  API-Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Modules
+        run: npm
+      - name: Run Tests
+        run: npm test
