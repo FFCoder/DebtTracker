@@ -20,7 +20,7 @@ jobs:
 
       - name: Setup Server
         uses: appleboy/ssh-action@v0.1.7
-        env:
+        with:
           host: ${{secrets.HOST_DNS}}
           username: ${{secrets.USERNAME}}
           key: ${{secrets.EC2_SSH_KEY}}
