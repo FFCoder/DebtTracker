@@ -1,0 +1,25 @@
+name: Deploy Code
+run-name: ${{ github.actor }} is deploying.
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+jobs:
+  DeployToEC2:
+    name: Deploy to EC2 (MASTER BRANCH)
+    runs-on: ubuntu-latest-8-cores
+
+    steps:
+      - name: Checkout the files
+        uses: actions/checkout@v3
+
+      - name: Deploy via SSH
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{secrets.EC2_SSH_KEY}}
+          REMOTE_HOST: ${{secrets.HOST_DNS}}
+          REMOTE_USER: ${{secrets.USERNAME}}
+          TARGET: ${{secrets.TARGET_DIR}}
