@@ -4,7 +4,7 @@ on: [workflow_dispatch]
 jobs:
   DeployToEC2:
     name: Deploy to EC2 (MASTER BRANCH)
-    runs-on: ubuntu-latest-8-cores
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout the files
