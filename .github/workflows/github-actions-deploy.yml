@@ -1,12 +1,6 @@
 name: Deploy Code
 run-name: ${{ github.actor }} is deploying.
-on:
-  pull_request:
-    branches:
-      - master
-  push:
-    branches:
-      - master
+on: [workflow_dispatch]
 jobs:
   DeployToEC2:
     name: Deploy to EC2 (MASTER BRANCH)
